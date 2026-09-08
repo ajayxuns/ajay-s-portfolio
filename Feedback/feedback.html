@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <style>
+        body {
+            margin: 0;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, #1e1e2e, #3a3a5a, #5c5c8a);
+            color: white;
+            padding: 20px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .navbar .brand a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.6em;
+            font-weight: bold;
+        }
+
+        .navbar .nav-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar .nav-menu li a {
+            text-decoration: none;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 25px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .navbar .nav-menu li a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .navbar .nav-menu li a.active {
+            background-color: white;
+            color: black;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar .toggler {
+            display: none;
+            font-size: 1.5em;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e2e;
+            overflow-x: hidden;
+        }
+
+        /* Intro Section */
+        .intro-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-left: 7px;
+            background-color: #1e1e2e;
+            color: #fff;
+        }
+
+        .content-left {
+            max-width: 50%;
+        }
+
+        .content-left h1 {
+            font-size: 2rem;
+            line-height: 1.5;
+        }
+
+        .content-left2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            height: 100vh;
+            width: 5%;
+            left: 0;
+            top: 0;
+            padding: 7px;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #1e1e2e, #3a3a5a, #5c5c8a);
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 16px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            padding-bottom: 20px;
+        }
+
+        .form-container iframe {
+            border: none;
+            width: 640px;
+            height: 1171px;
+        }
+
+        /* Social Icons */
+        ul {
+            list-style: none;
+        }
+
+        .example-2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .social {
+            height: 37px;
+            width: 37px;
+            transition: transform 0.3s ease;
+        }
+
+        .social:hover {
+            transform: scale(1.2);
+        }
+
+        .contact-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Mobile Social Icons Bar */
+        .social-icons-mobile {
+            display: none;
+            background: rgba(30, 30, 46, 0.9);
+            padding: 15px 0;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .social-icons-mobile .example-2 {
+            flex-direction: row;
+            gap: 20px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar .toggler {
+                display: block;
+            }
+
+            .navbar .nav-menu {
+                display: none;
+                flex-direction: column;
+                background: linear-gradient(135deg, #2a2a3e, #4a4a6a);
+                width: 100%;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                padding: 15px 0;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+                border-radius: 0 0 20px 20px;
+            }
+
+            .navbar .nav-menu.active {
+                display: flex;
+            }
+
+            .navbar .nav-menu li {
+                text-align: center;
+                margin: 8px 0;
+                padding: 5px 0;
+            }
+
+            .navbar .nav-menu li a {
+                padding: 12px 20px;
+                display: block;
+                background-color: transparent;
+                transition: all 0.3s ease;
+                border-radius: 20px;
+            }
+
+            .navbar .nav-menu li a:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+                box-shadow: none;
+            }
+
+            .navbar .nav-menu li a.active {
+                background-color: rgba(255, 255, 255, 0.2);
+                color: white;
+                box-shadow: none;
+            }
+
+            /* Hide desktop social icons */
+            .content-left2 {
+                display: none;
+            }
+
+            /* Show mobile social icons */
+            .social-icons-mobile {
+                display: flex;
+            }
+
+            /* Form adjustments */
+            .form-container iframe {
+                width: 100%;
+                height: 1000px;
+                max-width: 100%;
+            }
+
+            .contact-title {
+                font-size: 1.8rem;
+                padding: 0 10px;
+            }
+
+            /* Footer adjustments */
+            footer {
+                padding: 15px 10px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar .brand a {
+                font-size: 1.3em;
+            }
+
+            .form-container iframe {
+                height: 900px;
+            }
+
+            .contact-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="brand">
+                <a href="https://www.linkedin.com/in/ajaybankar/" target="_blank">Ajay Bankar</a>
+            </div>
+            <button class="toggler" id="toggler">&#9776;</button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../Home/home.html" class="nav-link">Home</a></li>
+                <li><a href="../About/about.html" class="nav-link">About</a></li>
+                <li><a href="../Project/project.html" class="nav-link">Projects</a></li>
+                <li><a href="../Feedback/feedback.html" class="nav-link active">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Mobile Social Icons (hidden on desktop) -->
+    <div class="social-icons-mobile">
+        <ul class="example-2">
+            <li class="icon-content">
+                <a href="https://www.linkedin.com/in/ajaybankar/" target="_blank">
+                    <img src="image.png" class="social">
+                </a>
+            </li>
+            <li class="icon-content">
+                <a href="https://github.com/ajayxuns" target="_blank">
+                    <img src="github_3291667.png" alt="" class="social">
+                </a>
+            </li>
+            <li class="icon-content">
+                <a href="mailto:ajaybankar0106@gmail.com" target="_blank">
+                    <img src="user_6542983.png" alt="" class="social">
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Desktop Social Icons (hidden on mobile) -->
+    <div class="content-left2">
+        <ul class="example-2">
+            <li class="icon-content">
+                <a href="https://www.linkedin.com/in/ajaybankar/" target="_blank">
+                    <img src="image.png" class="social">
+                </a>
+            </li>
+            <li class="icon-content">
+                <a href="https://github.com/ajayxuns" target="_blank">
+                    <img src="github_3291667.png" alt="" class="social">
+                </a>
+            </li>
+            <li class="icon-content">
+                <a href="mailto:ajaybankar0106@gmail.com" target="_blank">
+                    <img src="user_6542983.png" alt="" class="social">
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="form-container">
+        <h2 class="contact-title" style="padding-top: 1px;">Contact Me 🗓️</h2>
+        <iframe src="https://forms.gle/XxrMdRkG67N7eA83A" 
+                width="800" height="1200" frameborder="0" marginheight="0" marginwidth="0" 
+                onload="scrollToTop()">
+            Loading…
+        </iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+    <p>Made with ❤️ by <strong>Ajay Bankar</strong> | © 2026 All rights reserved.</p>
+</footer>
+
+    <script>
+        const toggler = document.getElementById('toggler');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        toggler.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.forEach(item => item.classList.remove('active'));
+                link.classList.add('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

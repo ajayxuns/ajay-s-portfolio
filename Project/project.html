@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #1e1e2e;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background: linear-gradient(135deg, #1e1e2e, #3a3a5a, #5c5c8a);
+            color: white;
+            padding: 20px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .brand a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.6em;
+            font-weight: bold;
+        }
+
+        .toggler {
+            display: none;
+            font-size: 1.5em;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .nav-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-menu li a {
+            text-decoration: none;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 25px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .nav-menu li a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-menu li a.active {
+            background-color: white;
+            color: black;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Intro Section */
+        .intro-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-left: 7px;
+            background-color: #1e1e2e;
+            color: #fff;
+        }
+
+        .content-left {
+            max-width: 50%;
+        }
+
+        .content-left h1 {
+            font-size: 2rem;
+            line-height: 1.5;
+        }
+
+        .content-left2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            height: 100vh;
+            width: 5%;
+            left: 0;
+            top: 0;
+            padding: 7px;
+        }
+
+        /* Card Styles */
+        .card-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 35px;
+            padding: 20px;
+        }
+
+        .card {
+            position: relative;
+            width: 500px;
+            height: auto;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .card img {
+            object-fit: cover;
+            width: 100%;
+            height: 300px;
+            border-bottom: 2px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card__subtitle {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #d9d9d9;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .card__content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(8px);
+            opacity: 0;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .card:hover .card__content {
+            transform: translate(-50%, -50%) rotate(0deg);
+            opacity: 1;
+        }
+
+        .card__title {
+            margin: 0;
+            font-size: 24px;
+            color: #000000;
+            font-weight: 700;
+            padding-bottom: 16px;
+        }
+
+        .card__description {
+            margin: 10px 0 0;
+            font-size: 16px;
+            color: #000000;
+            line-height: 1.4;
+        }
+
+        /* Social Icons */
+        ul {
+            list-style: none;
+        }
+
+        .example-2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .social {
+            height: 37px;
+            width: 37px;
+            transition: transform 0.3s ease;
+        }
+
+        .social:hover {
+            transform: scale(1.2);
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #1e1e2e, #3a3a5a, #5c5c8a);
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 16px;
+            position: relative;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        /* Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px;
+            }
+
+            .toggler {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                background: linear-gradient(135deg, #2a2a3e, #4a4a6a);
+                width: 100%;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                padding: 15px 0;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+                border-radius: 0 0 20px 20px;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu li {
+                text-align: center;
+                margin: 8px 0;
+            }
+
+            .nav-menu li a {
+                padding: 12px 20px;
+                display: block;
+                border-radius: 20px;
+            }
+
+            /* Social Icons Mobile */
+            .content-left2 {
+                position: static;
+                width: 100%;
+                height: auto;
+                padding: 15px 0;
+                background: rgba(30, 30, 46, 0.9);
+                margin: 0;
+                max-width: 100%;
+            }
+            
+            .example-2 {
+                flex-direction: row;
+                justify-content: center;
+                gap: 20px;
+                padding: 10px 0;
+            }
+            
+            .social {
+                height: 30px;
+                width: 30px;
+            }
+            
+            /* Card adjustments */
+            .card {
+                width: 90%;
+                margin-bottom: 20px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+                padding: 15px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .brand a {
+                font-size: 1.3em;
+            }
+            
+            .social {
+                height: 25px;
+                width: 25px;
+            }
+            
+            .example-2 {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="brand">
+                <a href="https://www.linkedin.com/in/ajaybankar/" target="_blank">Ajay Bankar</a>
+            </div>
+            <button class="toggler" id="toggler">&#9776;</button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../Home/home.html" class="nav-link">Home</a></li>
+                <li><a href="../About/about.html" class="nav-link">About</a></li>
+                <li><a href="../Project/project.html" class="nav-link active">Projects</a></li>
+                <li><a href="../Feedback/feedback.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+     
+    <!-- Social Icons -->
+    <div class="intro-section" id="home">
+        <div class="content-left2">
+            <ul class="example-2">
+                <li class="icon-content">
+                    <a href="https://www.linkedin.com/in/ajaybankar/" target="_blank">
+                        <img src="image.png" class="social">
+                    </a>
+                </li>
+                <li class="icon-content">
+                    <a href="https://github.com/ajayxuns" target="_blank">
+                        <img src="github_3291667.png" alt="" class="social">
+                    </a>
+                </li>
+                <li class="icon-content">
+                    <a href="mailto:ajaybankar0106@gmail.com">
+                        <img src="user_6542983.png" alt="" class="social">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Projects Section -->
+    <div class="intro-section" id="home">
+        <h1 style="padding-bottom: 25px; text-align: center;">Projects 💻</h1>
+    </div>
+  
+    <div class="card-container">
+        <div class="card" id="card1">
+            <img src="noirvouge.png" alt="Card image">
+            <p class="card__subtitle">
+                Noir Vogue (e Commerce Website) 🛍️
+            </p>
+            <div class="card__content">
+                <p class="card__title">Noir Vogue (e Commerce Website) 🛍️</p>
+                <p class="card__description">
+                   Noir Vogue is an ultra-modern, editorial-grade luxury fashion storefront designed to evoke the identity of iconic global fashion ateliers. Constructed with pure vanilla technologies, it emphasizes performance-driven responsiveness, micro-interactions, and high-fashion visual hierarchy.
+                    <br><br>
+                    <a href="https://noirvogue.netlify.app/" target="_blank">Check here</a> 🔗
+                </p>
+            </div>
+        </div>
+        <div class="card" id="card2">
+            <img src="securebridge.png" alt="Card image">
+            <p class="card__subtitle">
+                SecureBridge — Build Better Teams 🤝
+            </p>
+            <div class="card__content">
+                <p class="card__title">SecureBridge — Build Better Teams 🤝</p>
+                <p class="card__description">
+                    SecureBridge matches developers, designers, and AI engineers into teams based on complementary skills, verifies them via GitHub and portfolios, and scores compatibility so you can quickly find the right teammates for your project.
+                    <br><br>
+                    <a href="https://github.com/ajayxuns/SecureBridge" target="_blank">Check here</a> 🔗
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-container">
+        <div class="card" id="card1">
+            <img src="itachiuchiha.png" alt="Card image">
+            <p class="card__subtitle">
+               Itachi Uchiha (mouse tracking) 👁️
+            </p>
+            <div class="card__content">
+                <p class="card__title">Itachi Uchiha (mouse tracking) 👁️</p>
+                <p class="card__description">
+                  An immersive, interactive cinematic tribute to Itachi Uchiha, built with pure HTML, CSS, and JavaScript. The project blends a dark, atmospheric UI with smooth animations, dynamic eye-tracking, interactive visual effects, and subtle Uchiha-inspired details to capture the presence of one of the Clan’s most tragic heroes. 👁️🩸 Designed to turn a simple website into an experience where every interaction feels like stepping into Itachi’s world.
+                    <br><br>
+                    <a href="https://github.com/ajayxuns/ITACHI-UCHIHA" target="_blank">Check here</a> 🔗
+                </p>
+            </div>
+        </div>
+        <div class="card" id="card2">
+            <img src="anime.png" alt="Card image">
+            <p class="card__subtitle">
+                Anime Streaming & Blogging Platform 🎥
+            </p>
+            <div class="card__content">
+                <p class="card__title">Anime Streaming & Blogging Platform 🎥</p>
+                <p class="card__description">
+                   A modern, dark-themed anime streaming and blogging experience built with HTML5, CSS3/SCSS, Bootstrap, and JavaScript. Featuring a cinematic hero showcase, smooth anime carousels, advanced content filtering, and cinema-grade video playback with Plyr.js. The project also includes blogs, episode reviews, community discussions, news, dark-mode authentication, and responsive layouts for a seamless desktop and mobile experience.
+                    <br><br>
+                    <a href="https://github.com/ajayxuns/Anime-project" target="_blank">Check here</a> 🔗
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="intro-section" id="home">
+        <h1 style="padding-bottom: 25px;">Clone based Projects 👩‍💻</h1>
+    </div>
+
+    <div class="card-container">
+        <div class="card" id="card1">
+            <img src="spotify.png" alt="Card image">
+            <p class="card__subtitle">
+                Spotify Clone 🎵
+            </p>
+            <div class="card__content">
+                <p class="card__title">Spotify Clone 🎵</p>
+                <p class="card__description">
+                    This project is a frontend clone of the popular music streaming service, Spotify, built entirely 
+                    using HTML and CSS. The aim of this project is to recreate the look and feel of Spotify's frontend interface.
+                    <br><br>
+                    <a href="https://github.com/ajayxuns/Spotify-Replica-" target="_blank">Check here</a> 🔗
+                </p>
+            </div>
+        </div>
+        <div class="card" id="card2">
+            <img src="uber.png" alt="Card image">
+            <p class="card__subtitle">
+                Uber Clone 🚕
+            </p>
+            <div class="card__content">
+                <p class="card__title">Uber Clone 🚕</p>
+                <p class="card__description">
+                   This project is a high-performance clone of the Uber web platform built entirely on the MERN stack. Designed with precision, it mirrors core urban mobility workflows: pinpointing locations via geospatial APIs, selecting dynamic vehicle tiers, calculating route distances on the fly, and tracking rides end-to-end.
+                    <br><br>
+                    <a href="https://github.com/ajayxuns/Uber-Clone-MERN-" target="_blank">Check here</a> 🔗
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="intro-section" id="home">
+        <h1 style="padding-bottom: 25px;">Other Projects ⤵️</h1>
+    </div>
+
+    <div class="card-container">
+        <div class="card" id="card1">
+            <img src="naruto.png" alt="Card image">
+            <p class="card__subtitle">
+                Naruto sage mode (mouse tracking) 🌀
+            </p>
+            <div class="card__content">
+                <p class="card__title">Naruto Sage Mode 🌀</p>
+                <p class="card__description">
+                    仙人モード An immersive, scroll-driven interactive tribute tracking Uzumaki Naruto's Sage Mode Awakening. From the tranquil streets of the Hidden Leaf to the gathering of natural energy and the final transformation, this experience translates high-stakes anime cinematography into pure front-end web development.
+                    <br><br>
+                    <a href="https://github.com/ajayxuns/naruto-sage-mode" target="_blank">Check here</a> 🔗
+                </p>
+            </div>
+        </div>
+        <div class="card" id="card2">
+            <img src="icecream.png" alt="Card image">
+            <p class="card__subtitle">
+                Ice Cream Shop 🍦
+            </p>
+            <div class="card__content">
+                <p class="card__title">Ice Cream Shop 🍦</p>
+                <p class="card__description">
+                    Ice Cream Delight is a vibrant, interactive storefront prototype built to deliver a smooth and playful user experience. Built entirely with vanilla front-end technologies, it showcases responsive design patterns, tactile hover micro-interactions, and a clean product catalog interface.
+                    <br><br>
+                    <a href="https://github.com/ajayxuns/The-ICE-Cream" target="_blank">Check here</a> 🔗
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-container">
+        <div class="card" id="card1">
+            <img src="MeetConnect.png" alt="Card image">
+            <p class="card__subtitle">
+               MeetConnect online meeting platform 💻
+            </p>
+            <div class="card__content">
+                <p class="card__title">MeetConnect online meeting platform 💻</p>
+                <p class="card__description">
+                   A professional video meeting platform built using the MERN stack. Designed for teams and businesses to connect securely and collaborate in real-time. 
+                    <br><br>
+                    <a href="https://github.com/ajayxuns/MeetConnect" target="_blank">Check here</a> 🔗
+                </p>
+            </div>
+        </div>
+        <div class="card" id="card2">
+            <img src="fanta.png" alt="Card image">
+            <p class="card__subtitle">
+                Fanta 3d website 🍹
+            </p>
+            <div class="card__content">
+                <p class="card__title">Fanta 3d website 🍹</p>
+                <p class="card__description">
+                   This project is a vibrant, modern promotional landing page featuring dynamic, scroll-driven animations. Using GSAP and its ScrollTrigger plugin, visual assets including the main soda can, fresh orange slices, and floating leaves fluidly translate, rotate, and resize across viewport sections as the user scrolls.🍊✨
+                    <br><br>
+                    <a href="https://github.com/ajayxuns/fanta-website" target="_blank">Check here</a> 🔗
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-container">
+        <div class="card" id="card1">
+            <img src="mymusicplayer.png" alt="Card image">
+            <p class="card__subtitle">
+                MyMusicPlayer 🎧
+            </p>
+            <div class="card__content">
+                <p class="card__title">
+                    MyMusicPlayer 🎧
+                </p>
+                <p class="card__description">
+                    give very small MyMusicPlayer 🎧 is a sleek, lightweight web audio player built with pure HTML5, CSS3, and Vanilla JavaScript ⚡. Designed with fluid glassmorphic aesthetics and zero bloated libraries, it delivers instant playback, smooth animations, and pure musical vibes right in your browser ✨🎶.
+                    <br><br>
+                    <a href="https://github.com/ajayxuns/MyMusicPlayer" target="_blank">Check here</a> 🔗
+                </p>
+            </div>
+        </div>
+        
+        <div class="card" id="card2">
+            <img src="craftdraw.png" alt="Card image">
+            <p class="card__subtitle">
+                CanvasCraft — Drawing App 🎨
+            </p>
+            <div class="card__content">
+                <p class="card__title">CanvasCraft — Drawing App 🎨</p>
+                <p class="card__description">
+                    CanvasCraft is a responsive, web-based drawing workstation engineered with native browser APIs. It brings desktop-grade painting tools directly into the browser without heavy frontend libraries or external packages.
+                    <br><br>
+                    <a href="https://github.com/ajayxuns/Drawing-App-JavaScript" target="_blank">Check here</a> 🔗
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+    <p>Made with ❤️ by <strong>Ajay Bankar</strong> | © 2026 All rights reserved.</p>
+</footer>
+
+    <script>
+        // Navbar Toggle
+        const toggler = document.getElementById('toggler');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        toggler.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.forEach(item => item.classList.remove('active'));
+                link.classList.add('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

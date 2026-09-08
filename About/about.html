@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Neeru </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <style>
+        /* CSS */
+
+        html, body {
+  height: 100%;
+  margin: 0;
+}
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1e1e2e;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, #1e1e2e, #3a3a5a, #5c5c8a);
+            color: white;
+            padding: 20px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .brand a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.6em;
+            font-weight: bold;
+        }
+
+        .toggler {
+            display: none;
+            font-size: 1.5em;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .nav-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-menu li a {
+            text-decoration: none;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 25px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .nav-menu li a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-menu li a.active {
+            background-color: white;
+            color: black;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        @media (max-width: 768px) {
+    .content-left2 {
+        position: static;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: center;
+        padding: 20px 0;
+    }
+    .example-2 {
+        flex-direction: row !important;
+        gap: 10px !important;
+    }
+}
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+    .navbar {
+        padding: 10px 15px;
+        background: linear-gradient(135deg, #1e1e2e, #3a3a5a); /* Simplified gradient matching desktop */
+    }
+
+    .toggler {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        background: linear-gradient(135deg, #2a2a3e, #4a4a6a); /* Darker gradient for menu */
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 15px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        border-radius: 0 0 20px 20px;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu li {
+        text-align: center;
+        margin: 8px 0;
+        padding: 5px 0;
+    }
+
+    .nav-menu li a {
+        padding: 12px 20px;
+        display: block;
+        background-color: transparent;
+        transition: all 0.3s ease;
+        border-radius: 20px;
+    }
+
+    .nav-menu li a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        box-shadow: none;
+    }
+
+    .nav-menu li a.active {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: white;
+        box-shadow: none;
+    }
+}
+
+    .content-left2 {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+    position: fixed; 
+    height: 100vh; 
+    width: 5%; 
+    left: 0; 
+    top: 0; 
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    .content-left2 {
+        position: static;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: center;
+        padding: 20px 0;
+    }
+    .example-2 {
+        flex-direction: row !important;
+        gap: 10px !important;
+    }
+}
+
+.footer {
+  background: linear-gradient(135deg, #1e1e2e, #3a3a5a, #5c5c8a);
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 0;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        position: relative;
+        margin-top: 30px;
+    }
+}
+
+ul {
+  list-style: none;
+}
+
+.example-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+.example-2 .icon-content {
+  margin: 0 10px;
+  position: relative;
+}
+
+.social{
+  height: 37px;
+  width: 37px;
+  transition: transform 0.3s ease;
+}
+
+.social:hover {
+  transform: scale(1.2); 
+}
+
+
+.about-me-section {
+  margin: 50px auto;
+  padding: 30px;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.1); 
+  border: 1px solid rgba(255, 255, 255, 0.25); 
+  border-radius: 20px;
+  backdrop-filter: blur(7px) saturate(150%);
+  -webkit-backdrop-filter: blur(7px) saturate(150%);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3); 
+  text-align: center;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.8;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
+}
+
+@media (max-width: 768px) {
+    .about-me-section {
+        margin: 30px 20px;
+        padding: 20px;
+    }
+}
+
+.about-me-section:hover {
+  transform: scale(1.02); 
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4); 
+}
+
+.about-me-section h1 {
+  font-size: 2.2em;
+  margin-bottom: 20px;
+  color: #f8f8f8;
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); 
+}
+
+.about-me-section p {
+  font-size: 1.1em;
+  color: #dcdcdc;
+}
+
+.container-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.glassy-box {
+  background: rgba(255, 255, 255, 0.1); 
+  border: 1px solid rgba(255, 255, 255, 0.25); 
+  border-radius: 20px;
+  backdrop-filter: blur(7px) saturate(150%);
+  -webkit-backdrop-filter: blur(7px) saturate(150%);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3); 
+  text-align: center;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.5;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
+  width: 300px;
+  padding: 25px;
+}
+
+@media (max-width: 768px) {
+    .glassy-box {
+        width: calc(100% - 40px);
+        margin: 0 20px;
+    }
+}
+
+.glassy-box:hover {
+  transform: scale(1.02); 
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4); 
+}
+
+    .glassy-title {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .glassy-text {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    @media screen and (max-width: 768px) {
+      .glassy-box {
+        width: 100%;
+      }
+    }
+
+
+.button {
+  --primary: #4f46e5;
+  --neutral-1: #ffffff;
+  --neutral-2: #f3f4f6;
+  --radius: 16px;
+
+  cursor: pointer;
+  border-radius: var(--radius);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  border: none;
+  box-shadow:
+    0 1px 1px rgba(255, 255, 255, 0.4),
+    0 12px 24px rgba(0, 0, 0, 0.15),
+    0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  min-width: 220px;
+  padding: 22px;
+  height: 72px;
+  font-family: "Inter", system-ui, sans-serif;
+  font-style: normal;
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+
+@media (max-width: 768px) {
+    .button {
+        min-width: 180px;
+        padding: 18px;
+        height: 60px;
+        font-size: 16px;
+    }
+}
+
+.button:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow:
+    0 2px 2px rgba(255, 255, 255, 0.4),
+    0 18px 32px rgba(0, 0, 0, 0.15),
+    0 8px 12px rgba(0, 0, 0, 0.1);
+}
+
+.button:active {
+  transform: scale(1);
+  box-shadow:
+    0 0 1px 2px rgba(255, 255, 255, 0.3),
+    0 10px 3px -3px rgba(0, 0, 0, 0.2);
+}
+.button:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  border: 2.5px solid transparent;
+  background:
+    linear-gradient(var(--neutral-1), var(--neutral-2)) padding-box,
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.45))
+      border-box;
+  z-index: 0;
+  transition: all 0.4s ease;
+}
+.button:hover::after {
+  transform: scale(1.05, 1.1);
+  box-shadow: inset 0 -1px 3px 0 rgba(255, 255, 255, 1);
+}
+.button::before {
+  content: "";
+  inset: 7px 6px 6px 6px;
+  position: absolute;
+  background: linear-gradient(to top, var(--neutral-1), var(--neutral-2));
+  border-radius: 30px;
+  filter: blur(0.5px);
+  z-index: 2;
+}
+.state p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.state .icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  transform: scale(1.25);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.state .icon svg {
+  overflow: visible;
+}
+
+/* Outline */
+.outline {
+  position: absolute;
+  border-radius: inherit;
+  overflow: hidden;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  inset: -2px -3.5px;
+}
+.outline::before {
+  content: "";
+  position: absolute;
+  inset: -100%;
+  background: conic-gradient(
+    from 180deg,
+    transparent 60%,
+    var(--primary) 85%,
+    transparent 100%
+  );
+  animation: spin 2.5s linear infinite;
+  animation-play-state: paused;
+  opacity: 0.7;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.button:hover .outline {
+  opacity: 1;
+}
+.button:hover .outline::before {
+  animation-play-state: running;
+}
+
+/* Letters */
+.state p span {
+  display: block;
+  opacity: 0;
+  animation: slideDown 0.8s ease forwards calc(var(--i) * 0.03s);
+}
+.button:hover p span {
+  opacity: 1;
+  animation: wave 0.5s ease forwards calc(var(--i) * 0.02s);
+}
+.button:focus p span {
+  opacity: 1;
+  animation: disapear 0.6s ease forwards calc(var(--i) * 0.03s);
+}
+@keyframes wave {
+  30% {
+    opacity: 1;
+    transform: translateY(4px) translateX(0) rotate(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-4px) translateX(0) rotate(0);
+    color: var(--primary);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) translateX(0) rotate(0);
+  }
+}
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) translateX(5px) rotate(-90deg);
+    color: var(--primary);
+    filter: blur(5px);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(4px) translateX(0) rotate(0);
+    filter: blur(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-3px) translateX(0) rotate(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) translateX(0) rotate(0);
+  }
+}
+@keyframes disapear {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(5px) translateY(20px);
+    color: var(--primary);
+    filter: blur(5px);
+  }
+}
+
+/* Plane */
+.state--default .icon svg {
+  animation: land 0.6s ease forwards;
+}
+.button:hover .state--default .icon {
+  transform: rotate(45deg) scale(1.25);
+}
+.button:focus .state--default svg {
+  animation: takeOff 0.8s linear forwards;
+}
+.button:focus .state--default .icon {
+  transform: rotate(0) scale(1.25);
+}
+@keyframes takeOff {
+  0% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(80px) rotate(45deg) scale(2.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(180px) rotate(45deg) scale(0);
+  }
+}
+@keyframes land {
+  0% {
+    transform: translateX(-60px) translateY(30px) rotate(-50deg) scale(2);
+    opacity: 0;
+    filter: blur(3px);
+  }
+  100% {
+    transform: translateX(0) translateY(0) rotate(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+/* Contrail */
+.state--default .icon:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  height: 2px;
+  width: 0;
+  left: -5px;
+  background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.5));
+}
+.button:focus .state--default .icon:before {
+  animation: contrail 0.8s linear forwards;
+}
+@keyframes contrail {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+  8% {
+    width: 15px;
+  }
+  60% {
+    opacity: 0.7;
+    width: 80px;
+  }
+  100% {
+    opacity: 0;
+    width: 160px;
+  }
+}
+
+/* States */
+.state {
+  padding-left: 29px;
+  z-index: 2;
+  display: flex;
+  position: relative;
+}
+.state--default span:nth-child(4) {
+  margin-right: 5px;
+}
+.state--sent {
+  display: none;
+}
+.state--sent svg {
+  transform: scale(1.25);
+  margin-right: 8px;
+}
+.button:focus .state--default {
+  position: absolute;
+}
+.button:focus .state--sent {
+  display: flex;
+}
+.button:focus .state--sent span {
+  opacity: 0;
+  animation: slideDown 0.8s ease forwards calc(var(--i) * 0.2s);
+}
+.button:focus .state--sent .icon svg {
+  opacity: 0;
+  animation: appear 1.2s ease forwards 0.8s;
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(4) rotate(-40deg);
+    color: var(--primary);
+    filter: blur(4px);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(0.6);
+    filter: blur(1px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive adjustments for headings */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem !important;
+        padding: 0 20px;
+    }
+}
+
+/* Main content padding adjustment */
+.main-content {
+    padding-bottom: 60px;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        padding-bottom: 20px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    
+    <!-- HTML -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="brand">
+                <a href="https://www.linkedin.com/in/ajaybankar" target="_blank">Ajay Bankar</a>
+            </div>
+            <button class="toggler" id="toggler">&#9776;</button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../Home/home.html" class="nav-link ">Home</a></li>
+                <li><a href="#about" class="nav-link active">About</a></li>
+                <li><a href="../Project/project.html" class="nav-link">Projects</a></li>
+                <li><a href="../Feedback/feedback.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+     
+    
+
+    <div class="intro-section" id="home">
+        
+            <div class="content-left2">
+            <ul class="example-2">
+                <li class="icon-content">
+                  <a
+                    href="https://www.linkedin.com/in/ajaybankar" target="_blank"
+                  >
+                  <img src="image.png" class="social">
+                  </a>
+                </li>
+
+                <li class="icon-content">
+                  <a
+                    href="https://github.com/ajayxuns" target="_blank"
+                  >
+                  <img src="github_3291667.png" alt="" class="social">
+                  </a>
+                </li>
+
+                <li class="icon-content">
+                  <a
+                  href="mailto:ajaybankar0106@gmail.com" target="_blank"
+                  >
+                  <img src="user_6542983.png" alt="" class="social">
+                  </a>
+                </li>
+
+             </ul>
+    </div>
+
+    <div class="main-content">
+        <h1 style="color: white; text-align: center;">Get to Know Me 👋</h1>
+
+         <div id="about" class="about-me-section">
+    <p>
+        Hello! I'm <b><i>Ajay Bankar 👋</i></b>
+    </p>
+    <p>
+        Currently <b>a 1st-year BCS student</b> @BAMU. <br>
+        I'm passionate about <i>Full-Stack Web Development 🌐</i>, building
+        real-world projects with the <i>MERN stack</i>, and continuously
+        improving my <i>Data Structures and Algorithms (DSA) 📊</i> skills.
+    </p>
+</div>
+
+        <h1 style="color: white; text-align: center;">Programs & Milestones 🌟</h1>
+
+<section class="container-section">
+
+    <div id="box-one" class="glassy-box">
+        <h3 class="glassy-title">GirlScript Summer of Code</h3>
+        <p class="glassy-text">
+            Participated in <strong>GirlScript Summer of Code</strong>, gaining
+            valuable experience in open-source development, collaboration, and
+            contributing to real-world projects.
+        </p>
+    </div>
+
+    <div id="box-three" class="glassy-box">
+        <h3 class="glassy-title">Hacktoberfest</h3>
+        <p class="glassy-text">
+            Successfully participated in <strong>Hacktoberfest</strong>,
+            contributing to open-source projects while improving my
+            development skills and learning from the global developer community.
+        </p>
+    </div>
+
+    <div id="box-four" class="glassy-box">
+        <h3 class="glassy-title">Google Cloud Arcade</h3>
+        <p class="glassy-text">
+            Participated in the <strong>Google Cloud Arcade</strong> program,
+            gaining hands-on exposure to cloud technologies, practical labs,
+            and real-world Google Cloud concepts.
+        </p>
+    </div>
+
+</section>
+        
+         
+     
+
+    <footer class="footer">
+    <p>Made with ❤️ by <strong>Ajay Bankar</strong> | © 2026 All rights reserved.</p>
+</footer>
+
+
+  
+
+    <script>
+        // JavaScript
+        const toggler = document.getElementById('toggler');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        toggler.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Remove active class from all links
+                navLinks.forEach(item => item.classList.remove('active'));
+                // Add active class to the clicked link
+                link.classList.add('active');
+                // Collapse the menu (for smaller screens)
+                navMenu.classList.remove('active');
+            });
+        });
+
+
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        // Remove active class from all links
+        navLinks.forEach(link => link.classList.remove('active'));
+        // Add active class to the clicked link
+        link.classList.add('active');
+    });
+});
+
+const button = document.querySelector('.button');
+
+
+button.addEventListener('click', () => {
+    window.location.href = '../Portfolio/portfolio.html'; 
+});
+    </script>
+</body>
+</html>
