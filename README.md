@@ -23,7 +23,7 @@
 
 A sleek, responsive personal portfolio website crafted to display projects, skills, and interactive features with modern web styling and clean animations.
 
-* **Live Demo:** [https://ajay-s-portfolio-six.vercel.app/Home/home.html](https://github.com/ajayxuns/ajay-s-portfolio) 
+* **Live Demo:** https://ajay-s-portfolio-six.vercel.app/Home/home.html
 * **Author:** [@ajayxuns](https://github.com/ajayxuns)
 
 ---
